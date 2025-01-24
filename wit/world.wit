@@ -1,0 +1,12 @@
+package mattilsynet:map-managed-environment;
+
+world map-managed-environment {
+
+  include wasmcloud:component-go/imports@0.1.0;
+  import wasmcloud:messaging/consumer@0.2.0;
+  export mattilsynet:provider-jetstream-nats/jetstream-consumer;
+  import mattilsynet:provider-jetstream-nats/jetstream-publish;
+  export wasmcloud:messaging/handler@0.2.0;
+  import mattilsynet:map-kv/key-value;
+  
+}
