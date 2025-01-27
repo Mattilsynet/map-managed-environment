@@ -35,6 +35,7 @@ jobs:
       - name: install wasm-tools-go
         shell: bash
         run: |
+          go mod tidy
           go mod download github.com/bytecodealliance/wasm-tools-go
       - name: install wit-bindgen-go
         shell: bash
