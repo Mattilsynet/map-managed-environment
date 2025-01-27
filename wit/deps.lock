@@ -5,7 +5,7 @@ sha512 = "22cea00858c7391763ae130e989e07229ecfb987747bbe162e4e3df71b6c220e32ae3f
 deps = ["wasi-cli-0.2.0", "wasi-clocks-0.2.0", "wasi-config-0.2.0-draft", "wasi-filesystem-0.2.0", "wasi-http-0.2.0", "wasi-io-0.2.0", "wasi-logging-0.1.0-draft", "wasi-random-0.2.0", "wasi-sockets-0.2.0", "wasmcloud-bus-1.0.0", "wasmcloud-secrets-0.1.0-draft"]
 
 [keyvalue]
-path = "../../map-providers/map-nats-kv/wit"
+url = "https://github.com/Mattilsynet/map-nats-kv/archive/v0.0.2-pre-7.tar.gz"
 sha256 = "368bbedc330058fb87117f0908008adc2b42096f001c7c3e84c3e5ee7b8fad35"
 sha512 = "f2d4d0f915f201ba461dab6f50cc74ead3ab2988e7faf6913c8d3888191828215133a18446f7f873bece8901401e9b2b5da76c6e830fc7b4d319f59cdc72b64a"
 
@@ -15,7 +15,7 @@ sha256 = "41ada083aceb2b4ba92d9bd16d19b6462cc02b10378c9a49135c3447f9138a44"
 sha512 = "aa9c819dfd9e85b19661f6087ffd824c44fc38c8a4bc1005c4e7fd34fe844633c52cae7a0412e9ea90f71826e0660e8a3b5672a0f0303c524e4139643ae675ac"
 
 [provider-jetstream-nats]
-path = "../../map-providers/map-nats-consumer/wit"
+url = "https://github.com/Mattilsynet/map-nats-jetstream/archive/v0.0.1-pre-17.tar.gz"
 sha256 = "bd96481fa6ae00646da919c2612c5ca23ff48018aa231f117dbd32ba88f81e71"
 sha512 = "078d984d88c9c7fbc9520bb033c88495cb958cd51c8551b22f8d8b101d9c29849aff13975b9f19dddc9acfd8206ca72af9edef0eef7197a3be96022b125ac8c1"
 

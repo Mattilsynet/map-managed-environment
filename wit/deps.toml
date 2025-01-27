@@ -1,4 +1,4 @@
-provider-jetstream-nats = "../../map-providers/map-nats-consumer/wit"
+provider-jetstream-nats = "https://github.com/Mattilsynet/map-nats-jetstream/archive/v0.0.1-pre-17.tar.gz"
 component = "https://github.com/wasmCloud/component-sdk-go/archive/v0.0.5.tar.gz"
 messaging = "https://github.com/wasmCloud/messaging/archive/v0.2.0.tar.gz"
-keyvalue = "../../map-providers/map-nats-kv/wit"
+keyvalue = "https://github.com/Mattilsynet/map-nats-kv/archive/v0.0.2-pre-7.tar.gz"
