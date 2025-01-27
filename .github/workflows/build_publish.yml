@@ -35,10 +35,10 @@ jobs:
         run: |
           go mod download github.com/bytecodealliance/wasm-tools-go
           go get go.bytecodealliance.org/cmd/wit-bindgen-go
-      # - name: install wash-cli cached
-      #    uses: taiki-e/cache-cargo-install-action@v2
-        # with:
-        #   tool: wash-cli
+      - name: install wash-cli cached
+        uses: taiki-e/cache-cargo-install-action@v2
+        with:
+          tool: wash-cli
       - name: wit-deps
         shell: bash
         run: |
@@ -47,10 +47,6 @@ jobs:
         shell: bash
         run: |
           go generate ./...
-      - name: wit-deps
-        shell: bash
-        run: |
-          wit-deps
 
       # - name: validate-yaml
       #   shell: bash
