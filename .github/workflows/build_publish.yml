@@ -36,15 +36,10 @@ jobs:
         shell: bash
         run: |
           wit-deps
-      - name: install wasm-tools-go
-        shell: bash
-        run: |
-          go mod download github.com/bytecodealliance/wasm-tools-go
       - name: install wit-bindgen-go
         shell: bash
         run: |
-          go install github.com/bytecodealliance/wasm-tools-go/cmd/wit-bindgen-go
-
+          GO111MODULE=off go install github.com/bytecodealliance/wasm-tools-go/cmd/wit-bindgen-go
       - name: generate go files
         shell: bash
         run: |
