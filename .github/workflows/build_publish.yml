@@ -33,9 +33,11 @@ jobs:
         # with:
         #   tool: wash-cli
       - name: install wit-bindgen-go
+        env: 
+          GO111MODULE: off
         shell: bash
         run: |
-          GO111MODULE=off go install github.com/bytecodealliance/wasm-tools-go/cmd/wit-bindgen-go@latest
+          go install github.com/bytecodealliance/wasm-tools-go/cmd/wit-bindgen-go@latest
       - name: generate go files
         shell: bash
         run: |
