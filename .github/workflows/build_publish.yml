@@ -68,7 +68,7 @@ jobs:
         shell: bash
         run: |
            wash push ghcr.io/${{ github.repository }}:${{ github.ref_name }} ${{ env.built_file_name }} --annotation org.opencontainers.image.source=${{github.server_url}}/${{ github.repository }}
-      #   working-directory: build
+        working-directory: build
 
 #TODO: run wash up, wash apply and check output for success messages
 
