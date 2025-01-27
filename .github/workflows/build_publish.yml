@@ -38,10 +38,10 @@ jobs:
       #    uses: taiki-e/cache-cargo-install-action@v2
         # with:
         #   tool: wash-cli
-      # - name: install wit-bindgen-go
-      #   shell: bash
-      #   run: |
-      #     go install github.com/bytecodealliance/wasm-tools-go/cmd/wit-bindgen-go
+      - name: wit-deps
+        shell: bash
+        run: |
+          wit-deps
       - name: generate go files
         shell: bash
         run: |
