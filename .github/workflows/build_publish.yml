@@ -35,7 +35,7 @@ jobs:
       - name: install wit-bindgen-go
         shell: bash
         run: |
-          GO111MODULE=off go install github.com/bytecodealliance/wasm-tools-go/cmd/wit-bindgen-go
+          GO111MODULE=off go install github.com/bytecodealliance/wasm-tools-go/cmd/wit-bindgen-go@latest
       - name: generate go files
         shell: bash
         run: |
