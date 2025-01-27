@@ -32,10 +32,6 @@ jobs:
       #    uses: taiki-e/cache-cargo-install-action@v2
         # with:
         #   tool: wash-cli
-      - name: wit-deps
-        shell: bash
-        run: |
-          wit-deps
       - name: install wit-bindgen-go
         shell: bash
         run: |
@@ -44,6 +40,11 @@ jobs:
         shell: bash
         run: |
           go generate ./...
+      - name: wit-deps
+        shell: bash
+        run: |
+          wit-deps
+
       # - name: validate-yaml
       #   shell: bash
       #   run: |
