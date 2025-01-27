@@ -1,10 +1,10 @@
 name: build_push
 on:
   push:
-    # branches:
-    #   - master
-    tags:
-      - 'v*'
+    branches:
+      - master
+    # tags:
+    #   - 'v*'
 
 jobs:
   wash-build:
@@ -32,19 +32,19 @@ jobs:
       #    uses: taiki-e/cache-cargo-install-action@v2
         # with:
         #   tool: wash-cli
+      - name: wit-deps
+        shell: bash
+        run: |
+          wit-deps
       - name: install wasm-tools-go
         shell: bash
         run: |
-          go mod tidy
           go mod download github.com/bytecodealliance/wasm-tools-go
       - name: install wit-bindgen-go
         shell: bash
         run: |
           go install github.com/bytecodealliance/wasm-tools-go/cmd/wit-bindgen-go
-      - name: wit-deps
-        shell: bash
-        run: |
-          wit-deps
+
       - name: generate go files
         shell: bash
         run: |
