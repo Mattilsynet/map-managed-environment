@@ -48,7 +48,10 @@ jobs:
         shell: bash
         run: |
            go generate ./...
-
+      - name: go mod tidy
+        shell: bash
+        run: |
+           go mod tidy
       - name: validate-yaml
         shell: bash
         run: |
