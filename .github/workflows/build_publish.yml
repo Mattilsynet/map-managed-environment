@@ -33,7 +33,7 @@ jobs:
       - name: download wasm-tools-go
         shell: bash
         run: |
-          go mod download github.com/bytecodealliance/go-modules/cmd/wit-bindgen-go
+          go install github.com/bytecodealliance/go-modules/cmd/wit-bindgen-go
       # - name: install wash-cli cached
       #    uses: taiki-e/cache-cargo-install-action@v2
         # with:
