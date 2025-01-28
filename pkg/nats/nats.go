@@ -129,7 +129,7 @@ func ToBrokenMessageFromNatsMessage(nm *Msg) types.BrokerMessage {
 func (nc *Conn) Publish(msg *Msg) error {
 	bm := ToBrokenMessageFromNatsMessage(msg)
 	result := consumer.Publish(bm)
-	if !result.IsOK() {
+	if result.IsErr() {
 		return errors.New(*result.Err())
 	}
 	return nil

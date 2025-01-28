@@ -1,0 +1,76 @@
+apiVersion: core.oam.dev/v1beta1
+kind: Application
+metadata:
+  name: map-managed-environment
+  annotations:
+    version: v0.0.1
+    description: "responsible for handling managed-environments for further handling and deliver responses according CRQS, i.e., map.ManagedEnvironment.<session>.<id>.<apply, delete, get>"
+    authors: Mattilsynet Plattform team
+spec:
+  components:
+    - name: map-managed-environment
+      type: component
+      properties:
+        image: file://./build/map-managed-environment_s.wasm
+      traits:
+        - type: spreadscaler
+          properties:
+            replicas: 1
+        - type: link
+          properties:
+            target:
+              name: nats-core
+            namespace: wasmcloud
+            package: messaging
+            interfaces: [consumer]
+        - type: link
+          properties:
+            target:
+              name: map-nats-kv
+              config:
+                - name: map-nats-kv-config
+                  properties:
+                    bucket: "managed-environment"
+                    url: "nats://localhost:4222"
+            namespace: mattilsynet
+            package: map-kv
+            interfaces: [key-value]
+    - name: nats-core
+      type: capability
+      properties:
+        image: ghcr.io/wasmcloud/messaging-nats:canary
+        config:
+          - name: nats-core-config
+            properties:
+              cluster_uris: "nats://localhost:4222"
+      traits:
+        - type: spreadscalar
+          properties:
+            replicas: 1
+    - name: nats-jetstream
+      type: capability
+      properties:
+        image: ghcr.io/Mattilsynet/map-nats-jetstream:v0.0.1-pre-17
+      traits:
+        - type: link
+          properties:
+            target:
+              name: map-managed-environment
+            source:
+              config:
+                - name: nats-jetstream-nats-url
+                  properties:
+                    url: "nats://localhost:4222"
+                - name: nats-jetstream-consumer-config
+                  properties:
+                    stream-name: "map-managed-environment"
+                    stream-retention-policy: "workqueue" # oneof "interest, workqueue, limits"
+                    subject: "map.ManagedEnvironment.>"
+                    durable-consumer-name: "managed-environment-consumer"
+            namespace: mattilsynet
+            package: provider-jetstream-nats
+            interfaces: [jetstream-consumer]
+    - name: map-nats-kv
+      type: capability
+      properties:
+        image: ghcr.io/mattilsynet/map-nats-kv:v0.0.2-vendor-test-1
