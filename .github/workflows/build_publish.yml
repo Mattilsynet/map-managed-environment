@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       CARGO_TERM_COLOR: always
-      test-deploy: wadm.local.yaml
+      test-deploy: local.wadm.yaml
       wasm-bin: map-managed-environment_s.wasm
     permissions:
       contents: 'write'
