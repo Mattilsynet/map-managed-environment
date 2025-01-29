@@ -29,11 +29,6 @@ jobs:
         with:
           tinygo-version: "0.33.0"
           install-binaryen: "false"
-      - name: install cargo
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          override: true
       - name: install wash tools
         uses: taiki-e/install-action@v2
         with:
